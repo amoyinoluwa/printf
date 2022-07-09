@@ -13,8 +13,10 @@ typedef struct formatters
 	int (*func)(va_list);
 } formatter;
 
-int format_string(va_list args);
-int format_number(va_list args);
-int _putchar(char c);
+int _printf(const char *format, ...);
+int format_string(va_list);
+int format_number(va_list);
+int print_char(char c);
+int (*get_formatter(char *format))(va_list);
 
 #endif
