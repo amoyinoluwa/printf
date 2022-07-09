@@ -6,24 +6,22 @@
  * Return: correct formatter
  */
 
-int (*get_formatter(char *format))(va_list)
+int (*get_formatter(char format))(va_list)
 {
 	int i;
 
-	formatter f[] = {
-		{"c", print_char},
-		{"s", format_string},
-		{"d", format_number},
-		{"i", format_unsigned}
+	formatter form[] = {
+		{'c', format_char},
+		{'s', format_string}
 	};
 
 	i = 0;
 
-	while (i < 4)
+	while (i < 3)
 	{
-		if (f[i].f == format)
+		if (form[i].f == format)
 		{
-			return (f[i].func);
+			return (form[i].func);
 		}
 		i++;
 	}

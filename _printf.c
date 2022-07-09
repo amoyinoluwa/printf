@@ -40,6 +40,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				count += f(arg);
+				i++;
 			}
 		}
 		else
