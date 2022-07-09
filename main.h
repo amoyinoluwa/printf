@@ -9,14 +9,15 @@
 
 typedef struct formatters
 {
-	char *f;
+	char f;
 	int (*func)(va_list);
 } formatter;
 
 int _printf(const char *format, ...);
 int format_string(va_list);
 int format_number(va_list);
-int print_char(char c);
+int format_char(va_list);
+int _putchar(char c);
 int (*get_formatter(char *format))(va_list);
 
 #endif
