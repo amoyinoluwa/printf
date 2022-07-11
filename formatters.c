@@ -103,7 +103,7 @@ int format_unsigned(va_list arg)
 	int len = 0;
 	int d = 1;
 
-	num = va_arg(list, unsigned int);
+	num = va_arg(arg, unsigned int);
 	for (; num / d > 9; )
 	{
 		d = d * 10;
