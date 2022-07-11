@@ -12,7 +12,8 @@ int (*get_formatter(char format))(va_list)
 
 	formatter form[] = {
 		{'c', format_char},
-		{'s', format_string}
+		{'s', format_string},
+		{'d', format_number},
 	};
 
 	i = 0;

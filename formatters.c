@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _putchar - prints character to terminal
  * @c: char argument
@@ -10,10 +11,22 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
+/**
+ * format_char - prints char type arg to stdout
+ * @arg: char arg
+ * Return: char
+ */
+
 int format_char(va_list arg)
 {
 	return (_putchar(va_arg(arg, int)));
 }
+
+/**
+ * format_string - print char* type arg to stdout
+ * @arg: str arg
+ * Return: count of printed items
+ */
 
 int format_string(va_list arg)
 {
@@ -32,4 +45,48 @@ int format_string(va_list arg)
 		i++;
 	}
 	return (i);
+}
+
+/**
+ * format_number - formats int input for printf
+ * @arg: int argument
+ * Return: number of args printed
+ */
+
+int format_number(va_list arg)
+{
+	int k, j, count, val, zeros;
+
+	val = va_arg(arg, int);
+
+	count = 0;
+	zeros = 1;
+
+	if (val < 0)
+	{
+		_putchar('-');
+		val *= -1;
+		count++;
+	}
+
+	k = j = val;
+
+	while (val > 10)
+	{
+		val /= 10;
+		zeros *= 10;
+	}
+
+	_putchar(k/zeros + '0');
+	count += 1;
+
+	while(j > 10)
+	{
+		zeros /= 10;
+		_putchar((k/zeros) % 10 + '0');
+		count += 1;
+		j /= 10;
+	}
+
+	return (count);
 }
