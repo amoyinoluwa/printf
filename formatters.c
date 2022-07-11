@@ -90,3 +90,23 @@ int format_number(va_list arg)
 
 	return (count);
 }
+
+int format_unsigned(va_list arg)
+{
+	unsigned int num;
+	int len = 0;
+	int d = 1;
+
+	num = va_arg(list, unsigned int);
+	for (; num / d > 9; )
+	{
+		d = d * 10;
+	}
+	while (d > 0)
+	{
+		len += _putchar('0' + (num / d));
+		num = num % d;
+		d = d / 10;
+	}
+	return (len);
+}

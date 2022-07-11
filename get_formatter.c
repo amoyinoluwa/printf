@@ -14,11 +14,12 @@ int (*get_formatter(char format))(va_list)
 		{'c', format_char},
 		{'s', format_string},
 		{'d', format_number},
+		{'i', format_unsigned}
 	};
 
 	i = 0;
 
-	while (i < 3)
+	while (i < 4)
 	{
 		if (form[i].f == format)
 		{

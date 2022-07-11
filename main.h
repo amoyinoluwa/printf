@@ -21,6 +21,7 @@ int _printf(const char *format, ...);
 int format_string(va_list);
 int format_number(va_list);
 int format_char(va_list);
+int format_unsigned(va_list);
 int _putchar(char c);
 int (*get_formatter(char format))(va_list);
 
