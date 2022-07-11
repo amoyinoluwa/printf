@@ -29,12 +29,12 @@ int _printf(const char *format, ...)
 				count++;
 				continue;
 			}
+			if (format[i + 1] == '\0')
+				return (-1);
 			f = get_formatter(format[i + 1]);
 			if (f == NULL)
 			{
-				_putchar(format[i + 1]);
 				i++;
-				count++;
 				continue;
 			}
 			else
