@@ -91,6 +91,12 @@ int format_number(va_list arg)
 	return (count);
 }
 
+/**
+ * format_unsigned - prints unsigned int to stdout
+ * @arg: va list argument
+ * Return: unsigned int
+ */
+
 int format_unsigned(va_list arg)
 {
 	unsigned int num;
