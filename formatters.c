@@ -141,3 +141,34 @@ int format_binary(va_list arg)
 	}
 	return (count);
 }
+
+/**
+ * format_octal - formats decimal input to octal
+ * @arg: list of args
+ * Return: octal representation of arg
+ */
+
+int format_octal(va_list arg)
+{
+	unsigned int val;
+	int octal[64];
+	int i = 0, j, count = 0;
+
+	val = va_arg(arg, unsigned int);
+	if (val == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	while (val)
+	{
+		octal[i++] = val % 8;
+		val /= 8;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(octal[j] + '0');
+		count++;
+	}
+	return (count);
+}

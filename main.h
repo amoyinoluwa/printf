@@ -23,7 +23,7 @@ int format_number(va_list);
 int format_char(va_list);
 int format_unsigned(va_list);
 int format_binary(va_list);
-int convert_to_binary(unsigned int);
+int format_octal(va_list);
 int _putchar(char c);
 int (*get_formatter(char format))(va_list);
 

@@ -16,12 +16,13 @@ int (*get_formatter(char format))(va_list)
 		{'d', format_number},
 		{'i', format_number},
 		{'b', format_binary},
-		{'u', format_unsigned}
+		{'u', format_unsigned},
+		{'o', format_octal}
 	};
 
 	i = 0;
 
-	while (i < 6)
+	while (i < 7)
 	{
 		if (form[i].f == format)
 		{
