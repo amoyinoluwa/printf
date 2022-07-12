@@ -123,7 +123,7 @@ int format_unsigned(va_list arg)
 		count += 1;
 		j /= 10;
 	}
-	return (count)
+	return (count);
 }
 
 /**
