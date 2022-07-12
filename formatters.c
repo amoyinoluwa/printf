@@ -116,3 +116,35 @@ int format_unsigned(va_list arg)
 	}
 	return (len);
 }
+
+/**
+ * format_binary - function to convert decimal to binary
+ * @arg: unsigned int arg
+ * Return: number of characters printed
+ */
+
+int format_binary(va_list arg)
+{
+	unsigned int val;
+	int binary[64];
+	int i = 0, j, count = 0;
+
+	val = va_arg(arg, unsigned int);
+
+	if (val == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	while (val)
+	{
+		binary[i++] = val % 2;
+		val /= 2;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(binary[j] + '0');
+		count++;
+	}
+	return (count);
+}
