@@ -56,40 +56,24 @@ int format_string(va_list arg)
 
 int format_number(va_list arg)
 {
-	int k, j, count, val, zeros;
+	unsigned int divisor = 1, i, resp, charPrinted = 0;
+	int n = va_arg(arg, int);
 
-	val = va_arg(arg, int);
-
-	count = 0;
-	zeros = 1;
-
-	if (val < 0)
+	if (n < 0)
 	{
 		_putchar('-');
-		val *= -1;
-		count++;
+		charPrinted++;
+		n *= -1;
 	}
-
-	k = j = val;
-
-	while (val > 10)
+	for (i = 0; n / divisor > 9; i++, divisor *= 10)
+		;
+	for (; divisor >= 1; n %= divisor, divisor /= 10, charPrinted++)
 	{
-		val /= 10;
-		zeros *= 10;
+		resp = n / divisor;
+		_putchar('0' + resp);
 	}
 
-	_putchar(k / zeros + '0');
-	count += 1;
-
-	while(j > 10)
-	{
-		zeros /= 10;
-		_putchar((k / zeros) % 10 + '0');
-		count += 1;
-		j /= 10;
-	}
-
-	return (count);
+	return (charPrinted);
 }
 
 /**
