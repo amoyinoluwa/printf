@@ -19,7 +19,8 @@ int _putchar(char c)
 
 int format_char(va_list arg)
 {
-	return (_putchar(va_arg(arg, int)));
+	_putchar(va_arg(arg, int));
+	return (1);
 }
 
 /**
@@ -77,13 +78,13 @@ int format_number(va_list arg)
 		zeros *= 10;
 	}
 
-	_putchar(k/zeros + '0');
+	_putchar(k / zeros + '0');
 	count += 1;
 
 	while(j > 10)
 	{
 		zeros /= 10;
-		_putchar((k/zeros) % 10 + '0');
+		_putchar((k / zeros) % 10 + '0');
 		count += 1;
 		j /= 10;
 	}
@@ -99,22 +100,30 @@ int format_number(va_list arg)
 
 int format_unsigned(va_list arg)
 {
-	unsigned int num;
-	int len = 0;
-	int d = 1;
+	unsigned int val;
+	int count = 0;
+	int zeros = 1;
+	int k, j;
 
-	num = va_arg(arg, unsigned int);
-	for (; num / d > 9; )
+	val = va_arg(arg, unsigned int);
+	k = j = val;
+
+	while (val > 10)
 	{
-		d = d * 10;
+		val /= 10;
+		zeros *= 10;
 	}
-	while (d > 0)
+	_putchar(k / zeros + '0');
+	count += 1;
+
+	while (j > 10)
 	{
-		len += _putchar('0' + (num / d));
-		num = num % d;
-		d = d / 10;
+		zeros /= 10;
+		_putchar((k / zeros) % 10 + '0');
+		count += 1;
+		j /= 10;
 	}
-	return (len);
+	return (count)
 }
 
 /**
