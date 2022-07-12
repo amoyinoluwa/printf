@@ -14,7 +14,7 @@ int (*get_formatter(char format))(va_list)
 		{'c', format_char},
 		{'s', format_string},
 		{'d', format_number},
-		{'i', format_number},
+		{'i', format_unsigned},
 		{'b', format_binary}
 	};
 
