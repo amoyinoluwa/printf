@@ -22,26 +22,25 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '%')
-			{
-				_putchar('%');
-				i++;
-				count++;
-				continue;
-			}
 			if (format[i + 1] == '\0')
 				return (-1);
+			if (format[i + 1] == '%')
+			{
+				i++;
+				continue;
+			}
 			f = get_formatter(format[i + 1]);
 			if (f == NULL)
 			{
-				i++;
-				continue;
+				_putchar(format[i]);
+				_putchar(format[i + 1]);
+				count += 2;
 			}
 			else
 			{
 				count += f(arg);
-				i++;
 			}
+			i++;
 		}
 		else
 		{

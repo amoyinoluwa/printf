@@ -24,6 +24,8 @@ int format_char(va_list);
 int format_unsigned(va_list);
 int format_binary(va_list);
 int format_octal(va_list);
+int format_hex(va_list);
+int format_HEX(va_list);
 int _putchar(char c);
 int (*get_formatter(char format))(va_list);
 

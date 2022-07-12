@@ -172,3 +172,75 @@ int format_octal(va_list arg)
 	}
 	return (count);
 }
+
+/**
+ * format_hex - converts integer to small hex
+ * @arg: argument list
+ * Return: small hex
+ */
+
+int format_hex(va_list arg)
+{
+	unsigned int val;
+	int hex[64];
+	int i = 0, j, count = 0, rem;
+
+	val = va_arg(arg, unsigned int);
+	if (val == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	while (val)
+	{
+		rem = val % 16;
+		if (rem > 9 && rem < 16)
+		{
+			rem += 39;
+		}
+		hex[i++] = rem;
+		val /= 16;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(hex[j] + '0');
+		count++;
+	}
+	return (count);
+}
+
+/**
+ * format_HEX - converts integer to big hex
+ * @arg: argument list
+ * Return: big hex
+ */
+
+int format_HEX(va_list arg)
+{
+	unsigned int val;
+	int hex[64];
+	int i = 0, j, count = 0, rem;
+
+	val = va_arg(arg, unsigned int);
+	if (val == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	while (val)
+	{
+		rem = val % 16;
+		if (rem > 9 && rem < 16)
+		{
+			rem += 7;
+		}
+		hex[i++] = rem;
+		val /= 16;
+	}
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(hex[j] + '0');
+		count++;
+	}
+	return (count);
+}
