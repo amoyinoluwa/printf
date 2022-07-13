@@ -1,4 +1,4 @@
-.TH man 8 "12 May 2022" "Version 1.0" "Man page for printf function"
+.TH man 8 "12 July 2022" "Version 1.0" "Man page for printf function"
 
 .SH NAME
 _printf \- This function formats user input to stdout.
@@ -29,6 +29,16 @@ The unsigned int argument is converted to unsigned octal (o), unsigned decimal (
 
 .IP b
 Decimal signed integer. The int argument is converted to binary notation.
+
+.SS EXAMPLES
+
+_printf("My name is %s", "Joseph");
+_printf("Decimal representation of 20 is: %b\n" 20);
+_printf("Octal representation of 20 is: %o\n" 20);
+_printf("Hex representation of 20 is: %x\n" 20);
+
+.SH BUGS
+To suggest bug fixes, kindly open a pull request or reach out to me diretly on github.
 
 .SH AUTHOR
 Joseph Ajayi
