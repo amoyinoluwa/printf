@@ -86,8 +86,8 @@ int format_unsigned(va_list arg)
 {
 	unsigned int val;
 	int count = 0;
-	int zeros = 1;
-	int k, j;
+	unsigned int zeros = 1;
+	unsigned int k, j, res;
 
 	val = va_arg(arg, unsigned int);
 	k = j = val;
@@ -97,8 +97,18 @@ int format_unsigned(va_list arg)
 		val /= 10;
 		zeros *= 10;
 	}
-	_putchar(k / zeros + '0');
-	count += 1;
+	res = k / zeros;
+	if (res < 10)
+	{
+		_putchar(res + '0');
+		count += 1;
+	}
+	else
+	{
+		_putchar(res / 10 + '0');
+		_putchar(res % 10 + '0');
+		count += 2;
+	}
 
 	while (j > 10)
 	{
